@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="836.8,1751.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="680,1711" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
@@ -31,6 +31,7 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Core.Activities.TextModifications</x:String>
       <x:String>UiPath.Activities.System.Workflow.Business</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -71,9 +72,12 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Create three value-key pairs where the key is used in datetime operations." DisplayName="Dictionary Demo" sap:VirtualizedContainerService.HintSize="641.6,1686.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Create three value-key pairs where the key is used in datetime operations." DisplayName="Dictionary Demo" sap:VirtualizedContainerService.HintSize="610,1646" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String, String)]" Name="BirthDates" />
       <Variable x:TypeArguments="s:DateTime" Name="DateCurrentPerson" />
@@ -84,7 +88,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign Jamie Hanks Birthday" sap:VirtualizedContainerService.HintSize="579.2,69.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign Jamie Hanks Birthday" sap:VirtualizedContainerService.HintSize="548,122" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[BirthDates("Jamie Hanks")]</OutArgument>
       </Assign.To>
@@ -92,7 +96,7 @@
         <InArgument x:TypeArguments="x:String">10/25/1989</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign Willie Garner Birthday" sap:VirtualizedContainerService.HintSize="579.2,69.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Assign Willie Garner Birthday" sap:VirtualizedContainerService.HintSize="548,122" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[BirthDates("Willie Garner")]</OutArgument>
       </Assign.To>
@@ -100,7 +104,7 @@
         <InArgument x:TypeArguments="x:String">01/08/1987</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign Patricia Shaw Birthday" sap:VirtualizedContainerService.HintSize="579.2,69.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Assign Patricia Shaw Birthday" sap:VirtualizedContainerService.HintSize="548,122" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[BirthDates("Patricia Shaw")]</OutArgument>
       </Assign.To>
@@ -108,13 +112,13 @@
         <InArgument x:TypeArguments="x:String">06/14/2005</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="579.2,1203.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[BirthDates.Keys]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="548,1161" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[BirthDates.Keys]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Perform Date Time Operations On Key Values" sap:VirtualizedContainerService.HintSize="544,1068.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Perform Date Time Operations On Key Values" sap:VirtualizedContainerService.HintSize="512,1012" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:DateTime" Name="CurrentYearAnniversary" />
               <Variable x:TypeArguments="x:String" Name="WeekdayAnniversary" />
@@ -125,7 +129,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Convert Date" sap:VirtualizedContainerService.HintSize="481.6,69.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign DisplayName="Convert Date" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:DateTime">[DateCurrentPerson]</OutArgument>
               </Assign.To>
@@ -133,7 +137,7 @@
                 <InArgument x:TypeArguments="s:DateTime">[DateTime.Parse(BirthDates(currentItem))]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign CurrentYearAnniversary" sap:VirtualizedContainerService.HintSize="481.6,69.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign DisplayName="Assign CurrentYearAnniversary" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:DateTime">[CurrentYearAnniversary]</OutArgument>
               </Assign.To>
@@ -141,7 +145,7 @@
                 <InArgument x:TypeArguments="s:DateTime">[new DateTime(DateTime.Today.Year, DateCurrentPerson.Month, DateCurrentPerson.Day)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign WeekdayAnniversary" sap:VirtualizedContainerService.HintSize="481.6,69.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign DisplayName="Assign WeekdayAnniversary" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="Assign_6">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[WeekdayAnniversary]</OutArgument>
               </Assign.To>
@@ -149,25 +153,25 @@
                 <InArgument x:TypeArguments="x:String">[CurrentYearAnniversary.DayOfWeek.ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[CurrentYearAnniversary&lt;DateTime.Today]" DisplayName="Check Anniversary Against Current DateIf" sap:VirtualizedContainerService.HintSize="481.6,616.8" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[CurrentYearAnniversary&lt;DateTime.Today]" DisplayName="Check Anniversary Against Current DateIf" sap:VirtualizedContainerService.HintSize="450,561" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="400,225.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,200" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Result Before Today" sap:VirtualizedContainerService.HintSize="337.6,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[String.Format(&quot;The anniversary of {0} has already passed. It was on a {1}&quot;, currentItem, WeekdayAnniversary)]" />
+                  <ui:LogMessage DisplayName="Result Before Today" sap:VirtualizedContainerService.HintSize="354,115" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[String.Format(&quot;The anniversary of {0} has already passed. It was on a {1}&quot;, currentItem, WeekdayAnniversary)]" />
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="400,225.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,200" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Result After Today" sap:VirtualizedContainerService.HintSize="337.6,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;The anniversary of {0} is in the future. It will be on a {1}&quot;, currentItem, WeekdayAnniversary)]" />
+                  <ui:LogMessage DisplayName="Result After Today" sap:VirtualizedContainerService.HintSize="354,115" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;The anniversaryy of {0} is in the future. It wwill be on a {1}&quot;, currentItem, WeekdayAnniversary)]" />
                 </Sequence>
               </If.Else>
             </If>
